@@ -1,4 +1,4 @@
-export type QueryResultRow = Record<string, unknown>;
+export type QueryResultRow = object;
 
 export interface QueryResult<T extends QueryResultRow> {
   rows: T[];
