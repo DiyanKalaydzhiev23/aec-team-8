@@ -8,6 +8,9 @@ export interface UserRecord {
 }
 
 export async function getUserById(userId: string) {
-  const result = await db.query<UserRecord>('SELECT * FROM users WHERE id = $1', [userId]);
+  const result = await db.query<UserRecord>(
+    'SELECT id, name, email, updated_at FROM users WHERE id = $1',
+    [userId]
+  );
   return result.rows[0];
 }
